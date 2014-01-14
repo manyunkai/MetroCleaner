@@ -1,0 +1,90 @@
+# -*- coding: utf-8 -*-
+'''
+Created on 2014-1-13
+
+@author: Danny
+DannyWork Project
+'''
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class UiDialog(object):
+    def setup_ui(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(341, 377)
+        Dialog.setMinimumSize(QtCore.QSize(341, 377))
+        Dialog.setMaximumSize(QtCore.QSize(341, 377))
+        font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
+        font.setPointSize(10)
+        Dialog.setFont(font)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("cleaner.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
+        self.title = QtWidgets.QLabel(Dialog)
+        self.title.setGeometry(QtCore.QRect(10, 10, 321, 51))
+        font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
+        font.setPointSize(16)
+        self.title.setFont(font)
+        self.title.setAlignment(QtCore.Qt.AlignCenter)
+        self.title.setObjectName("title")
+        self.splitline = QtWidgets.QFrame(Dialog)
+        self.splitline.setGeometry(QtCore.QRect(10, 60, 321, 16))
+        self.splitline.setFrameShape(QtWidgets.QFrame.HLine)
+        self.splitline.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.splitline.setObjectName("splitline")
+        self.c_1 = QtWidgets.QCheckBox(Dialog)
+        self.c_1.setGeometry(QtCore.QRect(50, 120, 91, 31))
+        self.c_1.setObjectName("c_1")
+        self.c_1.setChecked(True)
+        self.c_2 = QtWidgets.QCheckBox(Dialog)
+        self.c_2.setGeometry(QtCore.QRect(50, 160, 91, 31))
+        self.c_2.setObjectName("c_2")
+        self.c_2.setChecked(True)
+        self.c_3 = QtWidgets.QCheckBox(Dialog)
+        self.c_3.setGeometry(QtCore.QRect(50, 200, 91, 31))
+        self.c_3.setObjectName("c_3")
+        self.c_3.setChecked(True)
+        self.options_label = QtWidgets.QLabel(Dialog)
+        self.options_label.setGeometry(QtCore.QRect(30, 90, 51, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.options_label.setFont(font)
+        self.options_label.setObjectName("options_label")
+        self.scan_btn = QtWidgets.QPushButton(Dialog)
+        self.scan_btn.setGeometry(QtCore.QRect(220, 150, 91, 31))
+        self.scan_btn.setObjectName("scan_btn")
+        self.clr_btn = QtWidgets.QPushButton(Dialog)
+        self.clr_btn.setGeometry(QtCore.QRect(220, 190, 91, 31))
+        self.clr_btn.setObjectName("clr_btn")
+        self.report_label = QtWidgets.QLabel(Dialog)
+        self.report_label.setGeometry(QtCore.QRect(30, 250, 54, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.report_label.setFont(font)
+        self.report_label.setObjectName("report_label")
+        self.report_txt = QtWidgets.QLabel(Dialog)
+        self.report_txt.setGeometry(QtCore.QRect(50, 280, 251, 16))
+        self.report_txt.setObjectName("report_txt")
+        self.copyright = QtWidgets.QLabel(Dialog)
+        self.copyright.setGeometry(QtCore.QRect(190, 330, 131, 21))
+        self.copyright.setObjectName("copyright")
+
+        self.retranslate_ui(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslate_ui(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Metro应用缓存清理工具"))
+        self.title.setText(_translate("Dialog", "Metro应用缓存清理"))
+        self.c_1.setText(_translate("Dialog", "Cache"))
+        self.c_2.setText(_translate("Dialog", "Cookies"))
+        self.c_3.setText(_translate("Dialog", "History"))
+        self.options_label.setText(_translate("Dialog", "选项："))
+        self.scan_btn.setText(_translate("Dialog", "扫描"))
+        self.clr_btn.setText(_translate("Dialog", "清理"))
+        self.report_label.setText(_translate("Dialog", "报告："))
+        self.report_txt.setText(_translate("Dialog", "欢迎使用！"))
+        self.copyright.setText(_translate("Dialog", "DannyWork Project"))
