@@ -82,19 +82,25 @@ class MainWindow(QtWidgets.QMainWindow, UiDialog):
         self.clr_btn.clicked.connect(self.clean)
 
     def init_cleaner(self, scan_only):
+        if not LOCALAPPDATA or not os.path.exists(PAKAGE_HOME):
+            self.report_txt.setText('未能定位Metro应用文件夹。')
+            return False
+
         self.cleaner = Cleaner(self.c_1.isChecked(), self.c_2.isChecked(),
                                self.c_3.isChecked(), scan_only)
         self.cleaner.callback.connect(self.report)
 
+        return True
+
     def scan(self):
         self.report_txt.setText('请稍后...')
-        self.init_cleaner(True)
-        self.cleaner.run()
+        if self.init_cleaner(True):
+            self.cleaner.run()
 
     def clean(self):
         self.report_txt.setText('请稍后...')
-        self.init_cleaner(False)
-        self.cleaner.run()
+        if self.init_cleaner(False):
+            self.cleaner.run()
 
     def report(self, count, size, cleaned):
         if cleaned:
